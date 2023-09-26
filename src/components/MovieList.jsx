@@ -30,7 +30,7 @@ const MovieList = ({searchInput, setSearchInput}) => {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <header className="bg-blue-500 text-white py-4">
+      <header className="bg-gray-800 text-white py-4">
         <div className="container mx-auto text-center">
           <h1 className="text-3xl font-semibold">
             {hasSearchResults ? 'Search Results(All)' : 'Trending Movies Today'}
@@ -40,20 +40,22 @@ const MovieList = ({searchInput, setSearchInput}) => {
       <div className="container mx-auto py-8 flex flex-col items-center">
         <input
           className="w-full max-w-md p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-          type="text"
+          type="search"
           placeholder="Search all movies..."
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
       </div>
       <div className="container mx-auto py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {searchInput === ''
-          ? data.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))
-          : filteredMovies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))}
+        {searchInput === '' ? (
+          data.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+        ) : filteredMovies.length > 0 ? (
+          filteredMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+        ) : (
+          <p className="text-gray-600 text-center text-xl mb-4">
+            Uh oh! No results found ☹️
+          </p>
+        )}
       </div>
     </div>
   );

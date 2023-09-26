@@ -9,10 +9,9 @@ const MovieCard = ({ movie }) => {
   };
 
   const truncatedOverview = movie.overview.slice(0, maxOverviewLength);
-  const shouldShowToggle = movie.overview.length > maxOverviewLength;
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4">
+    <div className="bg-white rounded-lg shadow-lg p-4 group hover:shadow-xl hover:transform hover:scale-105 transition-transform duration-300">
       <div className="relative">
         <img
           src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
@@ -21,7 +20,7 @@ const MovieCard = ({ movie }) => {
         />
         <div className="absolute top-2 right-2">
           <button
-            className="bg-blue-500 text-white px-2 py-1 rounded-lg hover:bg-blue-600"
+            className="bg-gray-800 text-white px-2 py-1 rounded-lg hover:bg-gray-600"
             onClick={toggleOverview}
           >
             {showFullOverview ? 'Less' : 'More'}
