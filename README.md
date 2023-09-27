@@ -20,6 +20,7 @@ Here is the [link](https://tmdb-cards.vercel.app) to checkout the live demo.
 - View trending movies of the day
 - Search for movies by title
 - Click on a movie to view details
+- Switch between light and dark mode by switch
 
 ## Getting Started
 
