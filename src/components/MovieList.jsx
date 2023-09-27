@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
-import Switcher from './switcher';
+import Switcher from './Switcher';
 
 const MovieList = ({searchInput, setSearchInput}) => {
   const [data, setData] = useState([]);
