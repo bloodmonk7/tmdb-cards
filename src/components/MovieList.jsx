@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
+import Switcher from './switcher';
 
 const MovieList = ({searchInput, setSearchInput}) => {
   const [data, setData] = useState([]);
@@ -29,17 +30,20 @@ const MovieList = ({searchInput, setSearchInput}) => {
   }, [searchInput]);  
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <header className="bg-gray-800 text-white py-4">
-        <div className="container mx-auto text-center">
-          <h1 className="text-3xl font-semibold">
+    <div className="bg-gray-100 min-h-screen dark:bg-gray-800">
+      <header className="bg-gray-800 dark:bg-gray-950 dark:text-gray-300 text-white py-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-3xl font-semibold text-center flex-grow">
             {hasSearchResults ? 'Search Results(All)' : 'Trending Movies Today'}
           </h1>
+          <div className="flex items-center space-x-4">
+            <Switcher />
+          </div>
         </div>
       </header>
       <div className="container mx-auto py-8 flex flex-col items-center">
         <input
-          className="w-full max-w-md p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+          className="w-full max-w-md p-2 border dark:bg-gray-300 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 mb-4"
           type="search"
           placeholder="Search all movies..."
           value={searchInput}

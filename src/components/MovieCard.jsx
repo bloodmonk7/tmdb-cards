@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
   const truncatedOverview = movie.overview.slice(0, maxOverviewLength);
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 group hover:shadow-xl hover:transform hover:scale-105 transition-transform duration-300">
+    <div className="bg-white dark:bg-gray-300 rounded-lg shadow-lg p-4 group hover:shadow-xl hover:transform hover:scale-105 transition-transform duration-300">
       <div className="relative">
         <img
           src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
@@ -27,9 +27,9 @@ const MovieCard = ({ movie }) => {
           </button>
         </div>
       </div>
-      <h2 className="text-xl font-semibold mt-4">{movie.title}</h2>
+      <h2 className="text-xl font-semibold mt-4 dark:text-gray-600">{movie.title}</h2>
       <p className="text-gray-600 text-sm">Release Date: {movie.release_date}</p>
-      <div className="mt-2">
+      <div className="mt-2 dark:text-gray-600">
         {showFullOverview ? (
           <p>{movie.overview}</p>
         ) : (
